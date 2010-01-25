@@ -1,0 +1,32 @@
+Golden Retriever automatically retrieves resources from the database for
+actions/controllers that follow rest conventions.
+
+Instructions:
+
+script/plugin git://github.com/DouglasMeyer/golden_retriever.git
+And add "require GoldenRetriever" to the controllers for which you want your
+resources automatically retrieved.
+
+Example:
+
+ActionController::Routing::Routes.draw do |map|
+  map.resources :users, :has_many => :posts
+end
+
+class PostsController < ApplicationController
+  require GoldenRetriever
+  # In this controller, you'll have access to @user, which is
+  # the same as: User.find(params[:user_id])
+  def index
+    # @posts will be the same as @user.posts
+    render :json => @posts
+  end
+  def show
+    # @post will be the same as @user.posts.find(params[:id])
+    render :json => @post
+  end
+  def new
+    # @post will be the same as @user.posts.build
+    render :json => @post
+  end
+end
