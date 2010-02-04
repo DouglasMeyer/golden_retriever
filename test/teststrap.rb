@@ -34,6 +34,10 @@ class FakePost
     @@id = id
     :find
   end
+  def self.find_fake_post(*args)
+    @@find_fake_post_called = true
+  end
+  def self.find_fake_post_called?; @@find_fake_post_called; end
   def self.new; :new; end
 end
 

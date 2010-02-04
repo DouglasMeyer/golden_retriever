@@ -50,4 +50,20 @@ context "Restful Controller" do
     end.equals(:new)
   end
 
+  context "with the method :resource_find_method" do
+    setup do
+      topic.instance_eval do
+        def resource_find_method(name)
+          "find_#{name}"
+        end
+      end
+      topic.action_name = 'show'
+      topic.new.send :load_resource
+    end
+
+    should "load resource using the method's response" do
+      FakePost.find_fake_post_called?
+    end
+  end
+
 end

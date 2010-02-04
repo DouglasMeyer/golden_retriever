@@ -2,6 +2,13 @@ module GoldenRetriever
 
   def self.included(controller)
     controller.before_filter :load_resource
+    controller.extend ClassMethod
+  end
+
+  module ClassMethod
+    def resource_find_method(resource)
+      :find
+    end
   end
 
 private
@@ -15,7 +22,7 @@ private
         parent.send(singular_name.pluralize)
       else
         singular_name.camelize.constantize
-      end.find params[key]
+      end.send(self.class.resource_find_method(singular_name), params[key])
       instance_variable_set("@#{singular_name}", object)
       parent = object
     end
