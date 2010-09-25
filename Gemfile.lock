@@ -1,0 +1,28 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (2.3.9)
+    gemcutter (0.6.1)
+    git (1.2.5)
+    jeweler (1.4.0)
+      gemcutter (>= 0.1.0)
+      git (>= 1.2.5)
+      rubyforge (>= 2.0.0)
+    json_pure (1.4.6)
+    rake (0.8.7)
+    riot (0.11.3)
+      rr
+      term-ansicolor
+    rr (1.0.0)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    term-ansicolor (1.0.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport (~> 2.3.0)
+  jeweler
+  rake
+  riot

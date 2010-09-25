@@ -25,6 +25,7 @@ context "Nested Restful Controller" do
         ActionController::Routing::Routes.action_and_params(name, @@params)
         @@action_name = name
       end
+      def self.resource_find_method(resource); :find; end
     end
     FakePostsController
   end
