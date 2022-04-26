@@ -9,7 +9,7 @@ GEM
       git (>= 1.2.5)
       rubyforge (>= 2.0.0)
     json_pure (1.4.6)
-    rake (0.8.7)
+    rake (12.3.3)
     riot (0.11.3)
       rr
       term-ansicolor
